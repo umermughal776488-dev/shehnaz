@@ -71,7 +71,7 @@ export default function Hero() {
           {featuredDeal.description}
         </p>
         
-        <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6 md:gap-8 mb-12 md:mb-16">
+        <div className="flex flex-col items-start gap-6 mb-12 md:mb-16">
           <Link 
             to={`/deal/${featuredDeal.slug}`}
             className="group relative px-8 py-4 md:px-12 md:py-6 bg-brand-brown text-white rounded-full text-lg md:text-xl font-bold shadow-[0_20px_50px_-10px_rgba(61,43,31,0.3)] hover:bg-brand-orange hover:-translate-y-1 transition-all duration-300 active:scale-95 w-full sm:w-auto text-center"
@@ -82,8 +82,8 @@ export default function Hero() {
             </span>
           </Link>
 
-          <div className="flex items-baseline gap-1">
-            <span className="text-[10px] font-bold text-brand-brown/40 uppercase tracking-widest block mb-1">Starting at</span>
+          <div className="flex flex-col items-start gap-1">
+            <span className="text-[10px] font-bold text-brand-brown/40 uppercase tracking-widest block">Starting at</span>
             <div className="flex items-baseline gap-3">
               <span className="text-3xl md:text-5xl font-black text-brand-brown">PKR {featuredDeal.price.toFixed(2)}</span>
               {featuredDeal.originalPrice && (
