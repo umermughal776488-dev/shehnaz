@@ -18,6 +18,13 @@ import DealsPage from './components/DealsPage';
 import DealDetail from './components/DealDetail';
 import { Product, CartItem } from './types';
 
+const AdminRedirect = () => {
+  useEffect(() => {
+    window.location.replace('https://shehnazcollection.sanity.studio/');
+  }, []);
+  return null;
+};
+
 export default function App() {
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
   const [isCartOpen, setIsCartOpen] = useState(false);
@@ -111,6 +118,7 @@ export default function App() {
               <DealDetail onAddToCart={handleAddToCart} />
             </main>
           } />
+          <Route path="/admin" element={<AdminRedirect />} />
         </Routes>
 
         <Footer />
