@@ -14,7 +14,7 @@ export default function Cart({ isOpen, onClose, items, onUpdateQuantity, onRemov
   const total = items.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
   const handleCheckout = () => {
-    const phoneNumber = "923277529800";
+    const phoneNumber = "923185838620";
     let message = "*New Order from Shehnaz Collection*\n\n";
     
     items.forEach((item, index) => {
