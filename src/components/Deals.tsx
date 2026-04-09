@@ -35,31 +35,31 @@ export default function Deals() {
   if (deals.length === 0) return null;
 
   return (
-    <section id="deals" className="px-8 py-24 max-w-7xl mx-auto overflow-hidden">
-      <div className="flex items-center justify-between mb-16">
+    <section id="deals" className="px-4 sm:px-8 py-16 md:py-24 max-w-7xl mx-auto overflow-hidden">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-10 md:mb-16 gap-6">
         <div>
-          <h2 className="text-4xl md:text-5xl font-serif font-bold mb-4 tracking-tight">Special Deals & Offers</h2>
-          <p className="text-brand-brown/60 max-w-lg text-sm">
+          <h2 className="text-3xl md:text-5xl font-serif font-bold mb-3 md:mb-4 tracking-tight">Special Deals & Offers</h2>
+          <p className="text-brand-brown/60 max-w-lg text-xs md:text-sm">
             Don't miss out on our limited-time offers and bundle deals.
           </p>
         </div>
-        <div className="flex gap-4">
+        <div className="flex gap-3">
           <button 
             onClick={prevDeal}
-            className="p-3 rounded-full border border-brand-brown/10 hover:bg-brand-brown hover:text-white transition-all group"
+            className="p-2 md:p-3 rounded-full border border-brand-brown/10 hover:bg-brand-brown hover:text-white transition-all group"
           >
-            <ArrowLeft className="w-5 h-5" />
+            <ArrowLeft className="w-4 h-4 md:w-5 md:h-5" />
           </button>
           <button 
             onClick={nextDeal}
-            className="p-3 rounded-full border border-brand-brown/10 hover:bg-brand-brown hover:text-white transition-all group"
+            className="p-2 md:p-3 rounded-full border border-brand-brown/10 hover:bg-brand-brown hover:text-white transition-all group"
           >
-            <ArrowRight className="w-5 h-5" />
+            <ArrowRight className="w-4 h-4 md:w-5 md:h-5" />
           </button>
         </div>
       </div>
 
-      <div className="relative h-[500px] rounded-[48px] overflow-hidden shadow-2xl bg-brand-beige/20">
+      <div className="relative min-h-[600px] lg:h-[500px] rounded-[32px] md:rounded-[48px] overflow-hidden shadow-2xl bg-brand-beige/20">
         <AnimatePresence mode="wait">
           <motion.div
             key={deals[currentIndex]?.id || currentIndex}
@@ -69,7 +69,7 @@ export default function Deals() {
             transition={{ duration: 0.6, ease: "easeInOut" }}
             className="absolute inset-0 flex flex-col lg:flex-row"
           >
-            <div className="w-full lg:w-1/2 h-1/2 lg:h-full relative overflow-hidden">
+            <div className="w-full lg:w-1/2 min-h-[250px] lg:h-full relative overflow-hidden">
               <img 
                 src={deals[currentIndex].image} 
                 alt={deals[currentIndex].title} 
@@ -79,20 +79,20 @@ export default function Deals() {
               <div className="absolute inset-0 bg-brand-brown/10"></div>
             </div>
             
-            <div className="w-full lg:w-1/2 h-1/2 lg:h-full p-8 lg:p-16 flex flex-col justify-center bg-white">
-              <div className="flex items-center gap-2 mb-6">
-                <Tag className="w-5 h-5 text-brand-orange" />
-                <span className="text-sm font-bold uppercase tracking-widest text-brand-orange">{deals[currentIndex].discount}</span>
+            <div className="w-full lg:w-1/2 p-6 md:p-12 lg:p-16 flex flex-col justify-center bg-white grow">
+              <div className="flex items-center gap-2 mb-4 md:mb-6">
+                <Tag className="w-4 h-4 md:w-5 md:h-5 text-brand-orange" />
+                <span className="text-[10px] md:text-sm font-bold uppercase tracking-widest text-brand-orange">{deals[currentIndex].discount} Off</span>
               </div>
-              <h3 className="text-4xl lg:text-6xl font-serif font-bold mb-6 leading-tight tracking-tighter">
+              <h3 className="text-2xl md:text-4xl lg:text-6xl font-serif font-bold mb-4 md:mb-6 leading-tight tracking-tighter">
                 {deals[currentIndex].title}
               </h3>
-              <p className="text-brand-brown/70 text-lg mb-10 max-w-md leading-relaxed">
+              <p className="text-brand-brown/70 text-base md:text-lg mb-8 md:mb-10 max-w-md leading-relaxed">
                 {deals[currentIndex].description}
               </p>
               <Link 
                 to={`/deal/${deals[currentIndex].slug}`}
-                className="bg-brand-brown text-white px-12 py-5 rounded-full text-lg font-bold hover:bg-brand-orange transition-all w-fit shadow-xl active:scale-95 text-center"
+                className="bg-brand-brown text-white px-8 py-4 md:px-12 md:py-5 rounded-full text-base md:text-lg font-bold hover:bg-brand-orange transition-all w-full sm:w-fit shadow-xl active:scale-95 text-center"
               >
                 Shop the Deal
               </Link>

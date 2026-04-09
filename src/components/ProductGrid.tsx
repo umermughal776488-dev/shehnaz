@@ -50,16 +50,16 @@ export default function ProductGrid({ onAddToCart }: ProductGridProps) {
   const allCategories = ['All', ...new Set(products.map(p => p.category))];
 
   return (
-    <section id="categories" className="px-8 py-24 max-w-7xl mx-auto">
-      <div className="text-center mb-16">
-        <h2 className="text-4xl md:text-5xl font-serif font-bold mb-4 tracking-tight">{headline}</h2>
-        <p className="text-brand-brown/60 max-w-lg mx-auto text-sm mb-12">
+    <section id="categories" className="px-4 sm:px-8 py-16 md:py-24 max-w-7xl mx-auto">
+      <div className="text-center mb-10 md:mb-16">
+        <h2 className="text-3xl md:text-5xl font-serif font-bold mb-3 md:mb-4 tracking-tight">{headline}</h2>
+        <p className="text-brand-brown/60 max-w-lg mx-auto text-xs md:text-sm mb-8 md:mb-12">
           {subtitle}
         </p>
 
-        <div className="flex flex-col gap-6">
+        <div className="flex flex-col gap-5 md:gap-6">
           {/* Main Categories */}
-          <div className="flex flex-wrap justify-center gap-3">
+          <div className="flex flex-wrap justify-center gap-2 md:gap-3">
             {allCategories.map(category => (
               <button
                 key={category}
@@ -67,7 +67,7 @@ export default function ProductGrid({ onAddToCart }: ProductGridProps) {
                   setActiveCategory(category);
                   setActiveSubcategory('All');
                 }}
-                className={`px-6 py-2 rounded-full text-sm font-medium transition-all ${
+                className={`px-4 md:px-6 py-2 rounded-full text-xs md:text-sm font-medium transition-all ${
                   activeCategory === category 
                     ? 'bg-brand-brown text-white shadow-lg' 
                     : 'bg-white text-brand-brown/60 hover:bg-brand-beige border border-brand-brown/5'
@@ -80,10 +80,10 @@ export default function ProductGrid({ onAddToCart }: ProductGridProps) {
 
           {/* Subcategories */}
           {subcategories.length > 0 && (
-            <div className="flex flex-wrap justify-center gap-2 animate-in fade-in slide-in-from-top-2">
+            <div className="flex flex-wrap justify-center gap-1.5 md:gap-2 animate-in fade-in slide-in-from-top-2">
               <button
                 onClick={() => setActiveSubcategory('All')}
-                className={`px-4 py-1.5 rounded-full text-xs font-bold transition-all ${
+                className={`px-3 md:px-4 py-1.5 rounded-full text-[10px] md:text-xs font-bold transition-all ${
                   activeSubcategory === 'All'
                     ? 'bg-brand-orange text-white'
                     : 'bg-brand-beige text-brand-brown/60 hover:bg-brand-brown/10'
@@ -95,7 +95,7 @@ export default function ProductGrid({ onAddToCart }: ProductGridProps) {
                 <button
                   key={sub}
                   onClick={() => setActiveSubcategory(sub)}
-                  className={`px-4 py-1.5 rounded-full text-xs font-bold transition-all ${
+                  className={`px-3 md:px-4 py-1.5 rounded-full text-[10px] md:text-xs font-bold transition-all ${
                     activeSubcategory === sub
                       ? 'bg-brand-orange text-white'
                       : 'bg-brand-beige text-brand-brown/60 hover:bg-brand-brown/10'
@@ -110,11 +110,11 @@ export default function ProductGrid({ onAddToCart }: ProductGridProps) {
       </div>
       
       {productsLoading ? (
-        <div className="flex justify-center items-center py-24">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-brand-brown"></div>
+        <div className="flex justify-center items-center py-12 md:py-24">
+          <div className="animate-spin rounded-full h-10 w-10 md:h-12 md:w-12 border-b-2 border-brand-brown"></div>
         </div>
       ) : (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-8">
           {filteredProducts.map(product => (
             <ProductCard 
               key={product.id} 

@@ -21,43 +21,43 @@ export default function Testimonials() {
   const subtitle = siteSettings?.reviewsSubtitle || "Our clients love how our products make their skin glow naturally. Here's what they have to say about their experience with us.";
 
   return (
-    <section className="px-8 py-24 max-w-7xl mx-auto">
-      <div className="text-center mb-16">
-        <h2 className="text-4xl md:text-5xl font-serif font-bold mb-4 tracking-tight">{headline}</h2>
-        <p className="text-brand-brown/60 max-w-lg mx-auto text-sm">
+    <section className="px-4 sm:px-8 py-16 md:py-24 max-w-7xl mx-auto">
+      <div className="text-center mb-10 md:mb-16">
+        <h2 className="text-3xl md:text-5xl font-serif font-bold mb-3 md:mb-4 tracking-tight">{headline}</h2>
+        <p className="text-brand-brown/60 max-w-lg mx-auto text-xs md:text-sm">
           {subtitle}
         </p>
       </div>
 
       {loading ? (
-        <div className="flex justify-center items-center py-24">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-brand-brown"></div>
+        <div className="flex justify-center items-center py-12 md:py-24">
+          <div className="animate-spin rounded-full h-10 w-10 md:h-12 md:w-12 border-b-2 border-brand-brown"></div>
         </div>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {testimonials.map(testimonial => (
-            <div key={testimonial.id} className="bg-white p-8 rounded-[32px] border border-brand-brown/5 shadow-sm hover:shadow-md transition-all flex flex-col gap-6">
-              <div className="flex items-center gap-4">
+            <div key={testimonial.id} className="bg-white p-6 md:p-8 rounded-[24px] md:rounded-[32px] border border-brand-brown/5 shadow-sm hover:shadow-md transition-all flex flex-col gap-4 md:gap-6">
+              <div className="flex items-center gap-3 md:gap-4">
                 <img 
                   src={testimonial.avatar} 
                   alt={testimonial.name} 
-                  className="w-12 h-12 rounded-full object-cover border-2 border-brand-orange/20"
+                  className="w-10 h-10 md:w-12 md:h-12 rounded-full object-cover border-2 border-brand-orange/20"
                   referrerPolicy="no-referrer"
                 />
                 <div>
-                  <p className="font-serif text-lg font-bold">{testimonial.name}</p>
+                  <p className="font-serif text-base md:text-lg font-bold">{testimonial.name}</p>
                   <div className="flex items-center gap-1">
                     {[...Array(5)].map((_, i) => (
                       <Star 
                         key={i} 
-                        className={`w-3 h-3 ${i < Math.floor(testimonial.rating) ? 'fill-brand-orange text-brand-orange' : 'text-brand-brown/10'}`} 
+                        className={`w-2.5 h-2.5 md:w-3 md:h-3 ${i < Math.floor(testimonial.rating) ? 'fill-brand-orange text-brand-orange' : 'text-brand-brown/10'}`} 
                       />
                     ))}
-                    <span className="text-[10px] font-bold ml-1">({testimonial.rating.toFixed(1)})</span>
+                    <span className="text-[9px] md:text-[10px] font-bold ml-0.5 md:ml-1">({testimonial.rating.toFixed(1)})</span>
                   </div>
                 </div>
               </div>
-              <p className="text-brand-brown/70 text-sm leading-relaxed italic">"{testimonial.text}"</p>
+              <p className="text-brand-brown/70 text-xs md:text-sm leading-relaxed italic break-words">"{testimonial.text}"</p>
             </div>
           ))}
         </div>
