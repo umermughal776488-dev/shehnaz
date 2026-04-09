@@ -19,10 +19,11 @@ import DealDetail from './components/DealDetail';
 import { Product, CartItem } from './types';
 
 const AdminRedirect = () => {
-  useEffect(() => {
-    window.location.replace('https://shehnazcollection.sanity.studio/');
-  }, []);
-  return null;
+  return(
+    <div>
+      <a href='https://shehnazcollection.sanity.studio/'>Visit CMS</a>
+    </div>
+  )
 };
 
 export default function App() {
